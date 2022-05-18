@@ -43,6 +43,6 @@ int main(int argc, string argv[])
             }
         }
     }
-    // 조건에 아무 문제 없으면 okay 
+    // 조건에 아무 문제 없으면 okay 출력
     printf("Okay\n");
 }
