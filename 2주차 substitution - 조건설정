@@ -1,0 +1,48 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+int main(int argc, string argv[])
+{
+    if (argc != 2)
+    {
+        printf("Key는 1개만 적어주세요 \n");
+        return 1;
+    }
+
+    // key의 validity. 26글자, 알파벳, 중복 x -> 각 글자별로
+    string key = argv[1];
+
+    // 알파벳
+    for (int i = 0; i < strlen(key); i++)
+    {
+        if (!isalpha (key[i]))
+        {
+            printf("Key는 영어만 사용\n");
+            return 1;
+        }
+    }
+
+    // 26글자
+    if (strlen(key) != 26)
+    {
+        printf("key는 26글자.\n");
+        return 1;
+    }
+    
+    for (int i = 0; i < strlen(key); i++)
+    {   // 첫 번째 숫자를 두 번째부터 마지막 숫자까지 반복문으로 일대일 비교
+        for (int j = 1; j < strlen(key); j++)
+        {   // 대문자로 통일
+            if (toupper(key[i]) == toupper (key[j]))
+            {
+                 printf("key는 중복X.\n");
+                 return 1;
+            }
+        }
+    }
+    // 조건에 아무 문제 없으면 okay 
+    printf("Okay\n");
+}
